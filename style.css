@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#container {
+    display: flex;/* 弹性布局 */
+    align-items: center;/* 垂直居中 */
+    justify-content: center;/* 水平居中 */
+    width: 100%;/* 容器宽度 */
+    height: 100vh;/* 容器高度 */
+    margin: 0 auto;/* 居中 */
+    align-items: flex-start; /* 将信息栏放置在右上角 */
+    background-image: url('./images/Background.jpg'); /* 背景图 */
+    background-size: cover; /* 背景图覆盖整个容器 */
+}
+#info {
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: #ffffff99;
+    padding: 20px;/* 内边距 */
+    width: 25%;/* 容器宽度 */
+    border-radius: 5px;/* 圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);/* 阴影 */
+}
+#result {
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 6);/* 阴影 */
+    padding: 20px;/* 内边距 */
+    border-radius: 5px;/* 圆角 */
+    cursor: pointer;/* 鼠标变成小手 */
+}
+#game-area {
+    position: relative;
+    width: 90%;
+    align-items: center;/* 垂直居中 */
+    justify-content: space-between;/* 水平居中 */
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;/* 隐藏溢出部分 */
+    margin-bottom: 20px; /* 与控制按钮的距离 */
+}
+button {
+    /*将按钮放置在*/
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    /*椭圆边框*/
+    border-radius: 2000px;
+    border: 4px solid #000; /* 设置边框 */
+    /*字体艺术字体*/
+    color:#9966FF; /*设置文字颜色*/
+    font-size:25px; /*设置字体大小*/
+    font-weight:bolder; /*设置字体粗细*/
+
+    background-color: #C00000;
+    color: white;
+    cursor: pointer;/*鼠标变成小手*/
+ }
+ @keyframes flicker{                    /*创建动画*/
+     0%{
+         opacity: 1;
+     }
+     50%{
+         opacity: 0.5;
+     }
+     100%{
+         opacity: 1;
+     }
+}
+button:hover {
+    background-color: #18e158;
+    transition: background-color 0.3s;/*设置过渡效果*/text-shadow: 
+    1px 1px 0 #000, /* 右下 */
+    -1px -1px 0 #000, /* 左上 */
+    -1px 1px 0 #000, /* 左下 */
+    1px -1px 0 #000; /* 右上 */
+    animation: flicker 2s infinite;/*设置动画*/
+}
+#start-button {
+    /*将按钮放置在左下角*/
+    position: absolute;
+    bottom: 100px;
+    left: 20px; 
+}
+#stop-button {
+    /*将按钮放置在右下角*/
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+/* 设置捕鱼数量输入框的样式 */
+input[type="number"] {
+    margin-right: 20px; /* 与按钮的距离 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 110px;
+}
+#catch-count {
+    position: absolute;
+    bottom: 110px;
+    left: 180px; 
+}
+
+#net {
+    /*网从固定位置呈现*/
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* 网动画:由小变大 */
+    animation: net-animation 1s infinite;
+}
+@keyframes net-animation {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+#big-fish {
+    position: absolute;
+    width: 10px; /* 大鱼的宽度 */
+    transition: transform 0.01s; /* 平滑移动 */
+    right: calc(var(--r) * -1);
+    animation: 
+        run 3s linear forwards，shake 0.3s linear infinite;
+}
+#small-fish {
+    position: absolute;
+    width: 40px; /* 小鱼的宽度 */
+    transition: transform 0.1s; /* 平滑移动 */
+    right: calc(var(--r) * -1);
+    animation: 
+        run 3s linear forwards，shake 0.001s linear infinite;;
+}
+@keyframes run {
+    to {
+        right: 100%;
+    }
+}
+@keyframes shake {
+    0% {
+        transform: rotateY(5deg);
+    }
+    50% {
+        transform: rotateY(-5deg);
+    }
+
+    100% {
+        transform: rotateY(0.1deg);
+    }
+}
+#result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}

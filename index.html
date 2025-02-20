@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="style.css"> <!-- 引入CSS文件 -->
+    <title>捕鱼游戏1.0</title>
+    <style type="text/css">
+        #circle {
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgb(255, 0, 0);
+            border-radius: 50%;
+            position: absolute;
+            left: 500px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="info" >
+            <h2 align="center">第<span id="Round"></span>轮</h2>
+            <p style="font-size:25px;">大鱼(+10)：<span id="num-big-fish"></span>条(<span id="big-fish-ratio"></span>%)</p>
+            <p style="font-size:25px;">小鱼(-2)：<span id="num-small-fish"></span>条(<span id="small-fish-ratio"></span>%)</p>
+            <p style="font-size:25px;">上一轮捕鱼情况：<p align="center" style="font-size:25px;">+<span id="last-win"></span>-<span id="last-lose"></span>=<span id="last-total"></span></p></p>
+            <p style="font-size:25px;">总金币：<span id="total-coins"></span></p>
+            <p align="right" style="font-size:25px;"><a href="游戏说明.html">游戏说明</a><p align="right" style="font-size:25px;"><a href="游戏说明.html">练习模式</a></p></p>
+        </div>
+        <div id="buttons">
+            <button id="start-button">开始捕鱼</button>
+            <button id="stop-button">停止捕鱼</button>
+        </div>
+        <input type="number" id="catch-count" min="1" max="5" placeholder="输入捕鱼数量" step="1" oninput="value=value.replace(/^(0+)|[^\d]+/g, '')" > <!-- 输入框只能输入1~5的整数 -->
+        <div id="game-area">
+            <img id="big-fish" src="images/big-fish.png" alt="big-fish" style="display: none;">
+            <img id="small-fish" src="images/small-fish.png" alt="small-fish" style="display: none;">
+            <img id="net" src="images/net.png" alt="Net" style="display: none;">
+        </div>
+         <!-- 捕鱼结果显示 -->
+        <div id="result" style="display: none;">
+            <p style="font-size:25px;">恭喜您捕到<span id="big-fish-catch"></span>条大鱼，<span id="small-fish-catch"></span>条小鱼!</p>
+            <p style="font-size:25px;">本轮获得金币：<span id="round-coins"></span></p>
+            <p align="center" style="font-size:10px;">等待5s继续...</p>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- 引入JS文件 -->
+</body>
+</html>
