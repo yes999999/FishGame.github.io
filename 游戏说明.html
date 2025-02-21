@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捕鱼游戏说明</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .container {
+            position: relative; /* 使伪元素相对于容器定位 */
+            width: 100%;
+            height: 100%; /* 设置容器高度 */
+            overflow: hidden; /* 防止内容溢出 */
+            background-image: url('images/Background.jpg');
+            background-size: cover;
+            background-position: center; 
+        }
+
+        /* 伪元素设置背景图 */
+        .container::before {
+            content: ''; /* 伪元素必须有 content 属性 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 半透明黑色遮罩，调整透明度为 50% */
+            z-index: 1; /* 确保遮罩在内容下方 */
+        }
+
+        /* 内容样式 */
+        .content {
+            position: relative; /* 确保内容在伪元素上方 */
+            z-index: 1; /* 确保内容在背景图上方 */
+            color: rgb(255, 255, 255); /* 设置文字颜色 */
+            text-align: center;
+            line-height: 100vh; /* 垂直居中 */
+            padding: 20px;
+        }
+        #back {
+            position: relative;
+            top: -220px;
+            left: -710px;
+            z-index: 1;
+            font-size: 20px; /* 设置字体大小 */
+        }
+        h1 {
+            writing-mode: vertical-rl; /* 竖向排列，从右到左 */
+            text-orientation: upright; /* 保持文字方向竖直 */
+            /*white-space: nowrap; /* 防止文字换行 */
+            font-size:80px; /*设置字体大小*/
+            /*两侧间距*/
+            margin-left: 0px; /* 设置左边距 */
+            margin-right: 20px; /* 设置右边距 */
+            /*文字样式*/
+		    font-weight:700; /*设置字体粗细*/
+		    color:#ffffff; /*设置文字颜色*/
+		    text-shadow:
+                    1px 0px #008099, 1px 2px #006666, 3px 1px #008099,
+		            2px 3px #006666, 4px 2px #008099, 4px 4px #006666,
+		            5px 3px #008099, 5px 5px #006666, 7px 4px #008099,
+		            6px 6px #006666, 8px 5px #008099, 7px 7px #006666,
+		            9px 6px #008099, 9px 8px #006666, 11px 7px #008099
+		    ;
+            /*文字位置*/
+            position: absolute;
+            top: 30vh;
+            left: -300px;
+        }
+        #text{
+            font-size: 20px; /* 设置字体大小 */
+            margin: 20px 0; /* 设置上下边距 */
+            line-height: 1.5; /* 设置行高 */
+            color: #ffffff;
+            /*文字靠右*/
+            text-align: left; /* 设置文字对齐方式为靠右 */
+            /*首行缩进*/
+            text-indent: 2em; /* 设置首行缩进 */
+            /*文字位置*/
+            position: absolute;
+            top: 3vh;
+            left: 200px;
+            right: 180px;
+        }
+        li{
+            /*首行缩进*/
+            text-indent: 2em; /* 设置首行缩进 */
+        }
+    </style>
+</head>
+<body>
+        
+    <div class="container">
+        <div class="content">
+            <h1>捕鱼游戏</h1>
+            <div id="back">   
+               <p><a href="index.html" style="color: rgb(255, 255, 255);">返回</a></p>        
+            </div>
+            <div id="text">
+                <p>欢迎来到捕鱼游戏！本游戏共10轮，每一轮你都有机会展示你的捕鱼技巧。游戏过程中，你需要尽可能获得最多的金币奖励。请仔细阅读以下游戏规则：</p>
+                <p>1. 鱼池中共有两种鱼，一种鱼（大鱼）已经成熟，可以捕捞；另一种鱼（小鱼）还未成熟，禁止捕捞（捞到需要放回）！</p>
+                <p>2. 捕鱼奖励</p>
+                   <li>大鱼：+10金币</li>
+                   <li>小鱼（需放回）：-5金币</li>
+                <p>3. 每轮游戏，你可以输入想要捕的鱼的数量（1~5条），输入完毕后点击<strong>开始捕鱼</strong>；</p>
+                <p>4. 开始捕鱼后，你将随机捕捞到大鱼、小鱼，捕捞大小鱼的概率按现在鱼池内大小鱼占比分配；</p>
+                <p>5. 每轮游戏结束后，你将获得本轮的金币奖励，之后你可以选择继续下一轮，或者点击<strong>停止捕鱼</strong>结束游戏。</p>
+                <p>6. 十轮游戏结束/停止捕鱼后，你将获得总的金币奖励！</p>
+                <p style="color: red;"> 游戏中捕鱼的位置等不会影响捕鱼情况，仅为呈现效果。</p>
+                <p style="color: red;"> 注意及时止损！！！</p>
+                <p style="color: red;"> 捕鱼次数越多，大鱼可能会越来越少，小心捕到更多的小鱼哦！</p>
+             </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
